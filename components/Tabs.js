@@ -20,8 +20,8 @@ axios.get("https://lambda-times-backend.herokuapp.com/topics")
             request.appendChild(oneTab(topic))
         })
     })
-    .catch( err => {
-        console.log(err);
+    .catch( error => {
+        console.log(error);
     })
 
 function oneTab(tabTitle) {
