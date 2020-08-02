@@ -11,13 +11,13 @@
 // NOTE: you do _not_ need to install axios as it's included in the HTML via script element
 
 
-const request = document.querySelector(".topics");
+const require = document.querySelector(".topics");
 
 axios.get("https://lambda-times-backend.herokuapp.com/topics")
     .then( response => {
         console.log(response);
         response.data.topics.forEach( topic => {
-            request.appendChild(oneTab(topic))
+            require.appendChild(oneTab(topic))
         })
     })
     .catch( error => {

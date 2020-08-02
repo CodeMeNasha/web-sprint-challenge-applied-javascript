@@ -36,11 +36,47 @@ function Carousel() {
   left.classList.add("left-button");
   right.classList.add("right-button");
 
+
+  oneImg.setAttribute("id", "1");
+  twoImg.setAttribute("id", "2");
+  threeImg.setAttribute("id", "3");
+  fourImg.setAttribute("id", "4");
+
   oneImg.src= "./assets/carousel/mountains.jpeg";
   twoImg.src= "./assets/carousel/computer.jpeg";
   threeImg.src= "./assets/carousel/trees.jpeg";
   fourImg.src= "./assets/carousel/turntable.jpeg";
 
 
+  carousel.append(left, oneImg, twoImg, threeImg, fourImg, right)
 
+  return carousel
 }
+
+var index = 1
+
+function makeVisible () {
+  if (index < 1){
+    index = 4
+  }
+  if (index > 4){
+    index = 1
+  }
+  const picture = document.getElementById(index.toString());
+  picture.style.display = "inline"
+}
+
+const carouselContainer = document.querySelector('.carousel-container')
+  carouselContainer.append(Carousel)
+
+const leftButton = document.querySelector('.left-button');
+const rightButton = document.querySelector('.right-button');
+
+leftButton.addEventListener('click', () => {
+  index ++
+  makeVisible()
+})
+rightButton.addEventListener('click', () => {
+  index --
+  makeVisible()
+})
