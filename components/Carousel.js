@@ -48,7 +48,7 @@ function Carousel() {
   fourImg.src= "./assets/carousel/turntable.jpeg";
 
 
-  carousel.append(left, oneImg, twoImg, threeImg, fourImg, right)
+  carousel.append(left, oneImg, twoImg, threeImg, fourImg, right);
 
   return carousel
 }
@@ -65,18 +65,36 @@ function makeVisible () {
   const picture = document.getElementById(index.toString());
   picture.style.display = "inline"
 }
+//function ends
 
 const carouselContainer = document.querySelector('.carousel-container')
-  carouselContainer.append(Carousel)
+  carouselContainer.append(Carousel())
 
 const leftButton = document.querySelector('.left-button');
 const rightButton = document.querySelector('.right-button');
 
 leftButton.addEventListener('click', () => {
+  makeInvisible()
   index ++
   makeVisible()
 })
 rightButton.addEventListener('click', () => {
+  makeInvisible()
   index --
   makeVisible()
+  
 })
+
+makeVisible();
+
+function makeInvisible () {
+  const pickOne = document.getElementById("1")
+  const pickTwo = document.getElementById("2")
+  const pickThree = document.getElementById("3")
+  const pickFour = document.getElementById("4")
+
+  pickOne.style.display = "none";
+  pickTwo.style.display = "none";
+  pickThree.style.display = "none";
+  pickFour.style.display = "none";
+}
