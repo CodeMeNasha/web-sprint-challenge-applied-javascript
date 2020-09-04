@@ -22,3 +22,80 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+
+function Carousel() {
+  const carousel = document.createElement("div");
+  const left = document.createElement("div");
+  const oneImg = document.createElement("img");
+  const twoImg = document.createElement("img");
+  const threeImg = document.createElement("img");
+  const fourImg = document.createElement("img");
+  const right = document.createElement("div");
+
+  carousel.classList.add("carousel");
+  left.classList.add("left-button");
+  right.classList.add("right-button");
+
+
+  oneImg.setAttribute("id", "1");
+  twoImg.setAttribute("id", "2");
+  threeImg.setAttribute("id", "3");
+  fourImg.setAttribute("id", "4");
+
+  oneImg.src= "./assets/carousel/mountains.jpeg";
+  twoImg.src= "./assets/carousel/computer.jpeg";
+  threeImg.src= "./assets/carousel/trees.jpeg";
+  fourImg.src= "./assets/carousel/turntable.jpeg";
+
+
+  carousel.append(left, oneImg, twoImg, threeImg, fourImg, right);
+
+  return carousel
+}
+
+var index = 1
+
+function makeVisible () {
+  if (index < 1){
+    index = 4
+  }
+  if (index > 4){
+    index = 1
+  }
+  const picture = document.getElementById(index.toString());
+  picture.style.display = "inline"
+}
+//function ends
+
+const carouselContainer = document.querySelector('.carousel-container')
+  carouselContainer.append(Carousel())
+
+const leftButton = document.querySelector('.left-button');
+const rightButton = document.querySelector('.right-button');
+
+leftButton.addEventListener('click', () => {
+  makeInvisible()
+  index ++
+  makeVisible()
+})
+rightButton.addEventListener('click', () => {
+  makeInvisible()
+  index --
+  makeVisible()
+  
+})
+
+makeVisible();
+
+function makeInvisible () {
+  const pickOne = document.getElementById("1")
+  const pickTwo = document.getElementById("2")
+  const pickThree = document.getElementById("3")
+  const pickFour = document.getElementById("4")
+
+  pickOne.style.display = "none";
+  pickTwo.style.display = "none";
+  pickThree.style.display = "none";
+  pickFour.style.display = "none";
+}
